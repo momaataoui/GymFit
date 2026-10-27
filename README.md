@@ -14,14 +14,16 @@ Welcome to the **Gym Project**, a modern web application built with **React**, *
 
 ## 🔍 Overview
 
-This application offers a frontend platform for a fitness center or gym to present its:
+This single-page application lets a fitness center (EvoGym) present its:
 
-- Featured programs
-- Membership plans
-- Hero landing page
-- Contact sections
-- FAQ
-- And more...
+- Hero landing section with sponsors
+- Benefits and facilities
+- Classes (horizontal scrolling gallery)
+- BMI calculator with a class recommendation
+- Pricing plans with a monthly / yearly toggle
+- Member testimonials carousel
+- Contact / sign-up form (sent via [FormSubmit](https://formsubmit.co))
+- Footer with quick links and contact info
 
 It is fully responsive and developed using reusable components and clean design principles.
 
@@ -33,7 +35,9 @@ It is fully responsive and developed using reusable components and clean design 
 - **TypeScript** — Static type checking
 - **Tailwind CSS** — Utility-first CSS framework
 - **Framer Motion** — Animations and transitions
-- **React Icons** — Scalable vector icons
+- **Heroicons** — Scalable vector icons
+- **React Hook Form** — Form validation
+- **react-anchor-link-smooth-scroll** — Smooth in-page navigation
 - **Vite** — Blazing fast development build tool
 
 ---
@@ -41,20 +45,19 @@ It is fully responsive and developed using reusable components and clean design 
 ## 📁 Project Structure
 ```plaintext
 gym-projet-react/
-├── public/ # Static assets
 ├── src/
-│ ├── assets/ # Images and media
-│ ├── components/ # Reusable UI components
-│ ├── constants/ # Static data
-│ ├── hooks/ # Custom React hooks
-│ ├── types/ # TypeScript types and interfaces
-│ ├── App.tsx # Main app component
-│ ├── main.tsx # Entry point
-│ └── index.css # Tailwind base styles
-├── tailwind.config.ts # Tailwind config
-├── tsconfig.json # TypeScript config
-├── package.json # Project metadata and dependencies
-└── README.md # You’re here!
+│   ├── assets/        # Images and media
+│   ├── hooks/         # Custom React hooks (useMediaQuery)
+│   ├── scenes/        # Page sections: navbar, home, benefits, ourClasses, bmi, pricing, testimonials, contactUs, footer
+│   ├── shared/        # Reusable components (ActionButton, HText, BackToTop) and TypeScript types
+│   ├── App.tsx        # Main app component
+│   ├── main.tsx       # Entry point
+│   └── index.css      # Tailwind base styles and fonts
+├── index.html         # HTML template
+├── tailwind.config.cjs
+├── vite.config.ts
+├── tsconfig.json
+└── package.json
 ```
 **🚀 Getting Started:**
 
@@ -65,7 +68,7 @@ gym-projet-react/
 
 2.  **Navigate into the project directory:**
     ```bash
-    cd gym-typescript-master
+    cd gym-projet-react
     ```
 
 3.  **Install dependencies:**
@@ -80,6 +83,15 @@ gym-projet-react/
 
 5.  **Open your browser:**
     Navigate to the local URL provided by Vite (usually `http://localhost:5173` or similar).
+
+6.  **Other scripts:**
+    ```bash
+    npm run build    # type-check and build for production
+    npm run preview  # preview the production build
+    npm run format   # format the source with Prettier
+    npm run lint     # lint with ESLint
+    npm test         # run the tests
+    ```
     
  ## 🧠 Features
 ⚡ **Fully responsive layout**
@@ -88,14 +100,23 @@ gym-projet-react/
 
 🎨 **Tailwind CSS design system**
 
-🧩 **Reusable constants and types**
+🧩 **Shared components and TypeScript types**
 
 🎥 **Smooth animations with Framer Motion**
 
-## 🧪 Testing
-Testing is currently not implemented in this project. Future enhancements may include unit and integration tests using tools like Vitest, React Testing Library, or Jest.
+🧮 **Interactive BMI calculator and pricing toggle**
 
-## 📦 Deployment                                                        
+⬆️ **Back-to-top button and optimized WebP images**
+
+## 🧪 Testing
+Tests use **Vitest** and **React Testing Library** (see `src/App.test.tsx`). They check that every in-page link points to a real section, that the mobile menu closes after navigating, that the contact form only submits valid input, and that the BMI calculator, pricing toggle and testimonials carousel work.
+
+```bash
+npm test         # run the tests once
+npm run lint     # check the code with ESLint
+```
+
+## 📦 Deployment
 You can deploy this app easily on platforms like:
 
 *   **Vercel**

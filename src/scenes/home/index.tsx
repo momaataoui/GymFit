@@ -2,7 +2,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { SelectedPage } from "@/shared/types";
 import ActionButton from "@/shared/ActionButton";
 import HomePageText from "@/assets/HomePageText.png";
-import HomePageGraphic from "@/assets/HomePageGraphic.png";
+import HomePageGraphic from "@/assets/HomePageGraphic.webp";
 import SponsorRedBull from "@/assets/SponsorRedBull.png";
 import SponsorForbes from "@/assets/SponsorForbes.png";
 import SponsorFortune from "@/assets/SponsorFortune.png";
@@ -14,10 +14,13 @@ type Props = {
 };
 
 const Home = ({ setSelectedPage }: Props) => {
-  const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 
   return (
-    <section id="Home" className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0">
+    <section
+      id={SelectedPage.Home}
+      className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0"
+    >
       {/* IMAGE AND MAIN HEADER */}
       <motion.div
         className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
@@ -26,7 +29,7 @@ const Home = ({ setSelectedPage }: Props) => {
         {/* MAIN HEADER */}
         <div className="z-10 mt-32 md:basis-3/5">
           {/* HEADINGS */}
-          
+          <h1 className="sr-only">EvoGym - Evolutionary Fitness</h1>
           <motion.div
             className="md:-mt-20"
             initial="hidden"
@@ -40,11 +43,9 @@ const Home = ({ setSelectedPage }: Props) => {
           >
             <div className="relative">
               <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] md:before:content-evolvetext">
-                <img alt="Home-page-text" src={HomePageText} />
+                <img alt="EvoGym" src={HomePageText} />
               </div>
             </div>
-
-          
           </motion.div>
 
           {/* ACTIONS */}
@@ -77,7 +78,7 @@ const Home = ({ setSelectedPage }: Props) => {
           className="flex basis-3/5 justify-center md:z-10
               md:ml-40 md:mt-16 md:justify-items-end"
         >
-          <img alt="Home-pageGraphic" src={HomePageGraphic} />
+          <img alt="Athlete training" src={HomePageGraphic} />
         </div>
       </motion.div>
 

@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "gray-20": "#fffffff",
+        "gray-20": "#FFFFFF",
         "gray-50": "#EFE6E6",
         "gray-100": "#DFCCCC",
         "gray-500": "#5E0000",
@@ -13,21 +13,16 @@ module.exports = {
         "primary-500": "#FF0000",
         "secondary-400": "#FFCD5B",
         "secondary-500": "#FFC132",
+        muted: "#808080",
+        muted: "#808080",
       },
-      backgroundImage: (theme) => ({
-        "gradient-yellowred":
-          "linear-gradient(90deg, #FF616A 0%, #FFC837 100%)",
-        "mobile-Home": "url('./assets/HomePageGraphic.png')",
-      }),
       fontFamily: {
-        dmsans: ["DM Sans", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
       },
       content: {
         evolvetext: "url('./assets/EvolveText.png')",
         abstractwaves: "url('./assets/AbstractWaves.png')",
         sparkles: "url('./assets/Sparkles.png')",
-        circles: "url('./assets/Circles.png')",
       },
     },
     screens: {

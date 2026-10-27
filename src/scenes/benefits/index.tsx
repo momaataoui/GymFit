@@ -7,24 +7,24 @@ import {
   AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
-import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
+import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.webp";
 import Benefit from "./Benefit";
 
 const benefits: Array<BenefitType> = [
   {
-    icon: <HomeModernIcon className="h-6 w-6"  style={{ color: '#e6e6e6' }}/>,
+    icon: <HomeModernIcon className="h-6 w-6 text-gray-50" />,
     title: "State of the Art Facilities",
     description:
       "Train with top-tier equipment in a clean, modern space designed for focus and results.",
   },
   {
-    icon: <UserGroupIcon className="h-6 w-6" style={{ color: '#e6e6e6' }} />,
+    icon: <UserGroupIcon className="h-6 w-6 text-gray-50" />,
     title: "100's of Diverse Classes",
     description:
       "Find motivation with hundreds of diverse weekly classes, from high-intensity to mindful movement.",
   },
   {
-    icon: <AcademicCapIcon className="h-6 w-6" style={{ color: '#e6e6e6' }} />,
+    icon: <AcademicCapIcon className="h-6 w-6 text-gray-50" />,
     title: "Expert and Pro Trainers",
     description:
       "Partner with certified trainers for personalized plans and expert support to achieve your goals faster.",
@@ -44,7 +44,10 @@ type Props = {
 
 const Benefits = ({ setSelectedPage }: Props) => {
   return (
-    <section id="benefits" className="mx-auto min-h-full w-5/6 py-20">
+    <section
+      id={SelectedPage.Benefits}
+      className="mx-auto min-h-full w-5/6 py-20"
+    >
       <motion.div
         onViewportEnter={() => setSelectedPage(SelectedPage.Benefits)}
       >
@@ -61,7 +64,7 @@ const Benefits = ({ setSelectedPage }: Props) => {
           }}
         >
           <HText>MORE THAN JUST GYM.</HText>
-          <p className="my-5 text-sm" style={{ color: '#808080'}}>
+          <p className="my-5 text-sm text-muted">
             We provide world class fitness equipment, trainers and classes to
             get you to your ultimate fitness goals with ease. We provide true
             care into each and every member.
@@ -92,7 +95,7 @@ const Benefits = ({ setSelectedPage }: Props) => {
           {/* GRAPHIC */}
           <img
             className="mx-auto"
-            alt="benefits-page-graphic"
+            alt="Members training in the gym"
             src={BenefitsPageGraphic}
           />
 
@@ -112,8 +115,9 @@ const Benefits = ({ setSelectedPage }: Props) => {
                   }}
                 >
                   <HText>
-              
-                    <span className="text-black" > MILLIONS OF HAPPY MEMBERS GETTING</span>
+                    <span className="text-black">
+                      MILLIONS OF HAPPY MEMBERS GETTING
+                    </span>
                     <span className="text-red-700"> FIT</span>
                   </HText>
                 </motion.div>
@@ -131,11 +135,16 @@ const Benefits = ({ setSelectedPage }: Props) => {
                 visible: { opacity: 1, x: 0 },
               }}
             >
-              <p className="my-5"style={{ color: '#808080' }}>
-              Experience the difference commitment and community make. We empower our members with everything they need – world-class equipment, varied programs, and expert support – to successfully reach their fitness targets.
+              <p className="my-5 text-muted">
+                Experience the difference commitment and community make. We
+                empower our members with everything they need – world-class
+                equipment, varied programs, and expert support – to successfully
+                reach their fitness targets.
               </p>
-              <p className="mb-5"style={{ color: '#808080' }}>
-              Don't just join a gym, join a movement dedicated to health and well-being. Find out why so many people trust us to guide them on their path to getting fit and feeling fantastic.
+              <p className="mb-5 text-muted">
+                Don't just join a gym, join a movement dedicated to health and
+                well-being. Find out why so many people trust us to guide them
+                on their path to getting fit and feeling fantastic.
               </p>
             </motion.div>
 

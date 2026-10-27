@@ -1,7 +1,8 @@
+import { FormEvent } from "react";
 import { useForm } from "react-hook-form";
 import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
-import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png";
+import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.webp";
 import HText from "@/shared/HText";
 
 type Props = {
@@ -18,15 +19,17 @@ const ContactUs = ({ setSelectedPage }: Props) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (e: any) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    // Block the native submit synchronously: an async check would only
+    // finish after the browser had already sent the form.
+    e.preventDefault();
+    const form = e.currentTarget;
     const isValid = await trigger();
-    if (!isValid) {
-      e.preventDefault();
-    }
+    if (isValid) form.submit();
   };
 
   return (
-    <section id="contactus" className="mx-auto w-5/6 pt-24 pb-32">
+    <section id={SelectedPage.ContactUs} className="mx-auto w-5/6 pt-24 pb-32">
       <motion.div
         onViewportEnter={() => setSelectedPage(SelectedPage.ContactUs)}
       >
@@ -45,8 +48,11 @@ const ContactUs = ({ setSelectedPage }: Props) => {
           <HText>
             <span className="text-primary-500">JOIN NOW</span> TO GET IN SHAPE
           </HText>
-          <p className="my-5"style={{ color: '#808080' }}>
-          Take the definitive step towards a healthier, stronger you. Joining EvoGym means investing in yourself with access to elite personal training, energizing group fitness, and a world-class gym environment designed to inspire results. Sign up today!
+          <p className="my-5 text-muted">
+            Take the definitive step towards a healthier, stronger you. Joining
+            EvoGym means investing in yourself with access to elite personal
+            training, energizing group fitness, and a world-class gym
+            environment designed to inspire results. Sign up today!
           </p>
         </motion.div>
 
@@ -64,6 +70,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             }}
           >
             <form
+              noValidate
               target="_blank"
               onSubmit={onSubmit}
               action="https://formsubmit.co/e8a5bdfa807605332f809e5656e27c6e"
@@ -88,7 +95,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
 
               <input
                 className={inputStyles}
-                type="text"
+                type="email"
                 placeholder="EMAIL"
                 {...register("email", {
                   required: true,
@@ -145,7 +152,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             <div className="w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-1] md:before:content-evolvetext">
               <img
                 className="w-full"
-                alt="contact-us-page-graphic"
+                alt="Member training with a coach"
                 src={ContactUsPageGraphic}
               />
             </div>

@@ -1,9 +1,13 @@
 import Navbar from "@/scenes/navbar";
-import Home from "@/scenes/Home";
+import Home from "@/scenes/home";
 import OurClasses from "@/scenes/ourClasses";
 import Benefits from "@/scenes/benefits";
+import Bmi from "@/scenes/bmi";
+import Pricing from "@/scenes/pricing";
+import Testimonials from "@/scenes/testimonials";
 import ContactUs from "@/scenes/contactUs";
 import Footer from "@/scenes/footer";
+import BackToTop from "@/shared/BackToTop";
 import { useEffect, useState } from "react";
 import { SelectedPage } from "@/shared/types";
 
@@ -26,7 +30,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app bg-gray-20 mt-11" >
+    <div className="app mt-11 bg-gray-20">
       <Navbar
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
@@ -35,8 +39,12 @@ function App() {
       <Home setSelectedPage={setSelectedPage} />
       <Benefits setSelectedPage={setSelectedPage} />
       <OurClasses setSelectedPage={setSelectedPage} />
+      <Bmi setSelectedPage={setSelectedPage} />
+      <Pricing setSelectedPage={setSelectedPage} />
+      <Testimonials />
       <ContactUs setSelectedPage={setSelectedPage} />
       <Footer />
+      <BackToTop isVisible={!isTopOfPage} />
     </div>
   );
 }
